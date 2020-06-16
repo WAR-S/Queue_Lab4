@@ -34,7 +34,8 @@ void MainWindow::on_pushButton_3_clicked()
 void MainWindow::on_pushButton_4_clicked()
 {
     qDebug()<<"Queue is empty";
-    queue.~Queue();
+    queue.clear();
+
 }
 
 void MainWindow::on_pushButton_5_clicked()
