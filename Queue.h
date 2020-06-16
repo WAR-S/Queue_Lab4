@@ -1,21 +1,22 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 #include <QDebug>
-struct SItem
-{
-    int x;
-    SItem* next;
-};
-
+template <typename T>
 class Queue
 {
+    struct SItem
+    {
+        T x;
+        SItem* next;
+    };
+
 public:
     Queue() {}
 
     ~Queue()
     {
         SItem *temp = Head;
-         getEl=0;
+        getEl=0;
         while (temp!=nullptr)
         {
             temp =Head->next;
@@ -25,9 +26,9 @@ public:
 
     }
 
-    void push(int count)
+    void push(T count)
     {
-        SItem *temp = new SItem;
+        SItem *temp = new  SItem;
         temp->x=count;
         temp->next = nullptr;
 
@@ -53,28 +54,32 @@ public:
     }
     void clear()
     {
-        qDebug()<<"Список очищен !";
-    }
-    bool isEmpty(bool flag);
-    int size()
-    {
-        return getEl;
-    }
-    void Print()
-    {
-        SItem *temp = Head;
-        while (temp!=nullptr)
-        {
-            qDebug()<<temp->x<<" ";
-            temp=temp->next;
-        }
-        qDebug()<<'\n';
-    }
-private:
-    SItem *Head, *Tail = nullptr;
-    int *P;
-    int getEl=0;
+        SItem* temp = nullptr;
+        Head = temp;
+        getEl=0;
 
-};
+    }
+
+        T isEmpty(T flag);
+        T size()
+        {
+            return getEl;
+        }
+        void Print()
+        {
+            SItem *temp = Head;
+            while (temp!=nullptr)
+            {
+                qDebug()<<temp->x<<" ";
+                temp=temp->next;
+            }
+            qDebug()<<'\n';
+        }
+        private:
+        SItem *Head, *Tail = nullptr;
+        int *P;
+        int getEl=0;
+
+    };
 
 #endif // QUEUE_H
