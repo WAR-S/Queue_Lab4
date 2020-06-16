@@ -52,13 +52,14 @@ public:
         }
         getEl--;
     }
-    void clear()
+   void clear()
     {
-        SItem* temp = nullptr;
-        Head = temp;
-        getEl=0;
-
-    }
+        while( getEl!=0)
+        {
+            pop();
+            
+        }
+   }
 
         T isEmpty(T flag);
         T size()
