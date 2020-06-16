@@ -28,6 +28,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    Queue queue;
+    Queue<int> queue;
 };
 #endif // MAINWINDOW_H
